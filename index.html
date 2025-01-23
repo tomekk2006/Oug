@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        button {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+
+            border-width: 2px 2px 6px 2px;
+            padding: 10px;
+            border-color: black;
+            border-style: solid;
+            background-color: white;
+
+            font-family: monospace;
+            font-size: large;
+            font-weight: 800;
+        }
+        h1 {
+        font-family: "Grandstander", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+        }
+
+        button:hover {
+            border-width: 2px 2px 8px 2px;
+            translate: -50% calc(-50% - 1px);
+        }
+        button:active {
+            border-width: 2px 2px 2px 2px;
+            translate: -50% calc(-50% + 2px);
+        }
+        div {
+            position: absolute;
+            translate: -50% -50%;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="og" oncontextmenu="return false;" src="anim1.png">
+        <h1>Oug clicks: 0</h1>
+    </div>
+    
+</body>
+<script>
+    let click = 0
+    document.getElementById("og").addEventListener("mousedown", (event) => {
+        document.getElementById("og").src = "anim2.png"
+        click++
+        document.querySelector("h1").innerText = "Oug clicks: " + click
+    })
+    document.getElementById("og").addEventListener("mouseup", (event) => {
+        document.getElementById("og").src = "anim1.png"
+    })
+    document.getElementById("og").addEventListener("touchstart", (event) => {
+        document.getElementById("og").src = "anim2.png"
+        document.querySelector("h1").innerText = "Oug clicks: " + click
+    })
+    document.getElementById("og").addEventListener("touchend", (event) => {
+        document.getElementById("og").src = "anim1.png"
+    })
+</script>
+</html>
